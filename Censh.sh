@@ -35,15 +35,19 @@ for i in `cat all_id.$domain`
 echo "done and your file name is all_hashe.$domain"
 
 echo "Now we will search on the censys.io Note that the output will be saved into a file "
+
+echo "What type you like to finde (ipv4|certs|websites)"
+	read $type
+	
 for i in `cat all_hash.$domain`
 	do 
-		query=`censys --query_type * --censys_api_id $api --censys_api_secret $secret $i`
+		query=`censys --query_type $type --censys_api_id $api --censys_api_secret $secret $i`
 		if [[ $query == "[]" ]]
 			then
 				echo "We do not found anything here ==> " $query
  
 		else 		echo "-------------------------------------------" >> file.txt	
-				echo $query >> censys_$domain
+				echo $query >> censys_$type_$domain
 				echo "-------------------------------------------" >> file.txt 
 				echo "There is some thing here ==> " $i
 		fi
