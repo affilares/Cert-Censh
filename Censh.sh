@@ -37,7 +37,7 @@ echo "done and your file name is all_hashe.$domain"
 echo "Now we will search on the censys.io Note that the output will be saved into a file "
 
 echo "What type you like to finde (ipv4|certs|websites)"
-	read $type
+	read type
 	
 for i in `cat all_hash.$domain`
 	do 
