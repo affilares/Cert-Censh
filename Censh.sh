@@ -46,9 +46,10 @@ for i in `cat all_hash.$domain`
 			then
 				echo "We do not found anything here ==> " $query
  
-		else 		echo "-------------------------------------------" >> censys_$domain
-				echo $query >> censys_$domain
-				echo "-------------------------------------------" >> censys_$domain
+		else 		
+				echo "------------------------------------------------------------" >> $domain.censys_$type
+				echo $query >> $domain.censys_$type
+				echo "------------------------------------------------------------" >> $domain.censys_$type
 				echo "There is some thing here ==> " $i
 		fi
 done ;
